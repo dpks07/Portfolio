@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepak Sharma | Game Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:"Poppins", sans-serif; }
+
+    body { background:#0e0e0e; color:#fff; }
+
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(20,20,20,0.95);
+      border-bottom: 1px solid #333;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:15px 40px; z-index:1000;
+    }
+    header .logo { font-size:1.5rem; font-weight:700; color:#f39c12; }
+    nav ul { display:flex; gap:25px; list-style:none; }
+    nav ul li a {
+      text-decoration:none; color:#fff; font-weight:500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color:#f39c12; }
+    .menu-toggle { display:none; font-size:1.8rem; cursor:pointer; }
+
+    /* Hero */
+    .hero {
+      height:60vh;
+      background:url("https://img.freepik.com/free-vector/gradient-gaming-background_23-2149908953.jpg") center/cover no-repeat;
+      display:flex; justify-content:center; align-items:center; text-align:center;
+      padding:20px;
+    }
+    .hero-content img {
+      width:170px; height:180px; border-radius:50%;
+      border:4px solid #f39c12; margin-bottom:20px;
+    }
+    .hero-content h1 { font-size:3rem; margin-bottom:10px; }
+    .hero-content p { font-size:1.4rem; margin-bottom:20px; }
+    .btn {
+      background:#f39c12; color:#fff; padding:12px 24px; border:none;
+      border-radius:25px; cursor:pointer; text-decoration:none;
+      transition: all 0.3s;
+    }
+    .btn:hover { background:#d35400; transform:translateY(-3px); }
+
+    /* Sections */
+    section { padding:50px 40px; }
+    h2 { text-align:center; font-size:2rem; margin-bottom:40px; }
+
+    /* About */
+    #about p {
+      max-width:800px; margin:0 auto;
+      text-align:center; font-size:1.1rem;
+      line-height:1.8; color:#ccc;
+    }
+
+    /* Skills */
+    #skills .skill {
+      margin-bottom:20px;
+      max-width:700px; margin-left:auto; margin-right:auto;
+    }
+    #skills .skill h3 { margin-bottom:8px; font-size:1rem; }
+    .progress-bar {
+      background:#333; border-radius:20px; overflow:hidden;
+    }
+    .progress {
+      height:12px; background:#f39c12;
+      width:0; transition:width 2s ease;
+    }
+
+    /* Projects */
+    #personal .projects-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:28px;
+    }
+    #mobzway .projects-grid {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:30px;
+    }
+
+    #pfc .projects-grid {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:30px;
+    }
+
+    .project-card {
+      background:#1e1e1e; border:1px solid #333;
+      border-radius:12px; overflow:hidden; cursor:pointer;
+      transition: all 0.3s ease; opacity:0; transform: translateY(40px);
+    }
+    .project-card img { width:100%; height:200px; object-fit:cover; }
+    .project-card h3 { margin:15px; color:#f39c12; }
+    .project-card p { margin:0 15px 20px; font-size:0.95rem; color:#ccc; }
+    .project-links { margin:0 15px 20px; }
+    .project-links a {
+      margin-right:10px; padding:8px 15px; border-radius:20px;
+      text-decoration:none; font-size:0.9rem; background:#333; color:#fff;
+      transition:all 0.3s;
+    }
+    .project-links a:hover { background:#f39c12; }
+    .project-card.show { opacity:1; transform:translateY(0); transition:all 0.6s ease; }
+    .project-card:hover { box-shadow:0 8px 20px rgba(243,156,18,0.3); border:1px solid #f39c12; transform:translateY(-5px); }
+
+    /* Footer */
+    footer {
+      background:#111; border-top:1px solid #333;
+      text-align:center; padding:20px;
+    }
+    footer a { color:#f39c12; margin:0 10px; font-size:1.3rem; }
+
+    /* Mobile */
+    @media(max-width:768px) {
+      nav ul {
+        display:none; flex-direction:column; position:absolute;
+        top:60px; right:40px; background:#222;
+        padding:15px; border-radius:10px;
+      }
+      nav ul.show { display:flex; }
+      .menu-toggle { display:block; color:#fff; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Deepak Sharma</div>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#personal">Personal Projects</a></li>
+        <!-- <li><a href="#mobzway">Mobzway Projects</a></li> -->
+        <!-- <li><a href="#pfc">PFC Gaming Projects</a></li> -->
+        <li><a href="resume.html">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <img src="assets/imgs/profile.jpg" alt="Profile Photo">
+      <h1>Hi..! </h1>
+      <h1>I'm Deepak Sharma</h1>
+      <p>Unity Game Developer</p>
+      
+    </div>
+  </section> 
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I'm a passionate Unity Game Developer with 2+ years of experience in 2D and 3D games using C# and .NET, building multiplayer and casual games while integrating backend services via REST APIs, Socket.IO, and SmartFoxServer. I focus on optimizing gameplay, UI/UX design, and performance using Unity features like Animator Systems, Coroutines, ScriptableObjects, and Addressables. I have contributed to projects like TopTeenPatti, Asiapoly, and Circle Jump, developing core mechanics, multiplayer interactions, and engaging user experiences. I am passionate about creating smooth, immersive games that delight players.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <h3>Unity Engine</h3>
+      <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+    </div>
+    <div class="skill">
+      <h3>C# Programming</h3>
+      <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+    </div>
+    <div class="skill">
+      <h3>UI Implementation</h3>
+      <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+    </div>
+    <div class="skill">
+      <h3>Animations & Prefabs</h3>
+      <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+    </div>
+    <div class="skill">
+      <h3>Performance Optimization</h3>
+      <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+    </div>
+  </section>
+
+ <!-- Personal Projects -->
+  <section id="personal">
+    <h2>Personal Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="assets/imgs/2dplatformer.png" alt="2D Platformer">
+        <h3>2D Platformer — Dragon Adventure</h3>
+        
+        <div class="project-links">
+          <a href="2dplatformer.html">Details</a>
+        </div>
+      </div>
+      
+      <div class="project-card">
+        <img src="assets/imgs/runner.png" alt="3D Runner">
+        <h3>3D Endless Runner</h3>
+        
+        <div class="project-links">
+          <a href="endlessrunner.html">Details</a>
+          <a href="files/Runner3D.apk" download="Runner.apk" > Download Apk</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/imgs/kardlogo.png" alt="3D World">
+        <h3>Kard Games</h3>
+        
+        <div class="project-links">
+          <a href="kardgames.html">Details</a>
+          <!--<a href="files/Runner3D.apk" download="Runner.apk" > Download Apk</a>-->
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/imgs/3dCar.jpg" alt="3dCar">
+        <h3>3d Car Controller</h3>
+        
+        <div class="project-links">
+          <a href="3dCar.html">Details</a>
+          <!--<a href="files/Runner3D.apk" download="Runner.apk" > Download Apk</a>-->
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/imgs/3dworld.jpg" alt="3dWorld">
+        <h3>3d World</h3>
+        
+        <div class="project-links">
+          <a href="3dworld.html">Details</a>
+          <!--<a href="files/Runner3D.apk" download="Runner.apk" > Download Apk</a>-->
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Mobzway Projects -->
+  <section id="mobzway">
+    <h2>Projects with Mobzway Technologies</h2>
+    <div class="projects-grid">
+      <div class="project-card" onclick="window.open('https://topteenpatti.net/', '_blank')">
+        <img src="assets/imgs/ttp.png" alt="Top Teen Patti">
+        <h3>Top Teen Patti</h3>
+        <p>Top Teen Patti - Casino Game</p>
+      </div>
+      <div class="project-card" onclick="window.open('https://www.happyace.in/', '_blank')">
+        <img src="assets/imgs/hac.png" alt="Happy Ace Casino">
+        <h3>Happy Ace Casino</h3>
+        <p>Happy Ace Casino - Casino Game</p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="pfc">
+    <h2>Projects with Pfc Gaming</h2>
+    <div class="projects-grid">
+      <div class="project-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.pfcgaming.AsiaPoly&pcampaignid=web_share', '_blank')">
+        <img src="assets/imgs/asiapoly.png" alt="asiapoly">
+        <h3>Asiapoly</h3>
+        <!-- <p>Top Teen Patti - Casino Game</p> -->
+      </div>
+
+      <div class="project-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.PFCGaming.ColorBump&pcampaignid=web_share', '_blank')">
+        <img src="assets/imgs/colorbump.png" alt="colorbump">
+        <h3>Color Bump 3D</h3>
+        <!-- <p>Happy Ace Casino - Casino Game</p> -->
+      </div>
+
+      <div class="project-card" onclick="window.open('https://play.google.com/store/apps/details?id=com.pfcgaming.newcirclejump&pcampaignid=web_share', '_blank')">
+        <img src="assets/imgs/circlejump.png" alt="circlejump">
+        <h3>circle Jump 2D</h3>
+        <!-- <p>Happy Ace Casino - Casino Game</p> -->
+      </div>
+      
+    </div>
+  </section>
+  
+  <footer>
+    <p>Deepak Sharma | Unity Game Developer</p>
+   
+    <a href="https://github.com/dpks07"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/dpk007"><i class="fab fa-linkedin"></i></a>
+   <!-- <a href="files/resume.pdf" download="Deepak_Resume.pdf"><i class="fa fa-file"></i></a>-->
+  </footer>
+
+  <script>
+    // Toggle menu
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("nav ul");
+    toggle.addEventListener("click", () => { navLinks.classList.toggle("show"); });
+
+    // Animate project cards
+    const cards = document.querySelectorAll(".project-card");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold:0.2 });
+    cards.forEach(card => observer.observe(card));
+
+    // Animate skills
+    const progresses = document.querySelectorAll(".progress");
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.width = entry.target.dataset.width;
+        }
+      });
+    }, { threshold:0.5 });
+    progresses.forEach(p => skillObserver.observe(p));
+  </script>
+</body>
+</html>
